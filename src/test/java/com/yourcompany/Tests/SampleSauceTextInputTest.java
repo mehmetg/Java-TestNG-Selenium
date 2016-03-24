@@ -1,26 +1,20 @@
 package com.yourcompany.Tests;
 
 
-import com.yourcompany.Pages.*;
-import com.yourcompany.Tests.SampleSauceTestBase;
-import com.yourcompany.Utils.Statistics;
-import org.junit.Test;
-import org.omg.CORBA.SystemException;
+import com.yourcompany.Pages.GuineaPigPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.rmi.UnexpectedException;
-import java.util.*;
+import java.util.UUID;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -29,10 +23,11 @@ import static org.junit.Assert.*;
 
 public class SampleSauceTextInputTest extends SampleSauceTestBase {
 
-    HashMap<String, ArrayList<Double>> execTimes;
+    //HashMap<String, ArrayList<Double>> execTimes;
 
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     //@org.testng.annotations.Test(dataProvider = "hardCodedBrowsers")
@@ -62,87 +57,910 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
-    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 100)
-    public void verifyCommentInputTest(String browser, String version, String os, Method method)
+    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 1)
+    public void verifyCommentInputTest1(String browser, String version, String os, Method method)
             throws MalformedURLException, InvalidElementStateException, UnexpectedException {
         String commentInputText = UUID.randomUUID().toString();
 
         WebDriver driver = createDriver(browser, version, os, method.getName());
-
-        // Navigate to the page
-        Long startTime = System.nanoTime();
-        driver.get("https://saucelabs.com/test/guinea-pig");
-        double time = (System.nanoTime() - startTime)/1000000;
-        if (this.execTimes.containsKey("page_load")) {
-            this.execTimes.get("page_load").add(time);
-        } else {
-
-            this.execTimes.put("page_load", new ArrayList<>(Arrays.asList(time)));
+        if (driver == null) {
+            System.err.println("Driver is null!");
+            assertTrue(false);
+        }
+        try {
+            driver.get("https://www.amazon.com");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.amazon.com\");");
+            e.printStackTrace();
         }
 
-        /*
-         enterCommentText page is an exposed "service",
-             which interacts with the email input field element by sending text to it.
-        */
-        startTime = System.nanoTime();
-        WebElement comments = driver.findElement(By.id("comments"));
-        time = (System.nanoTime() - startTime)/1000000;
-        if (this.execTimes.containsKey("comments_find_by_id")) {
-            this.execTimes.get("comments_find_by_id").add(time);
-        } else {
-            this.execTimes.put("comments_find_by_id", new ArrayList<>(Arrays.asList(time)));
+        try {
+            driver.get("https://www.bbc.co.uk");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.bbc.co.uk\");");
+            e.printStackTrace();
         }
 
-        startTime = System.nanoTime();
-        comments.sendKeys(commentInputText);
-        time = (System.nanoTime() - startTime)/1000000;
-        if (this.execTimes.containsKey("comments_send_text")) {
-            this.execTimes.get("comments_send_text").add(time);
-        } else {
-            this.execTimes.put("comments_send_text", new ArrayList<>(Arrays.asList(time)));
+        try {
+            driver.get("https://saucelabs.com/test/guinea-pig");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://saucelabs.com/test/guinea-pig\");");
+            e.printStackTrace();
+        }
+        WebElement comments = null;
+        try {
+            comments = driver.findElement(By.id("comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments = driver.findElement(By.id(\"comments\"));");
+            e.printStackTrace();
         }
 
-        startTime = System.nanoTime();
-        WebElement button = driver.findElement(By.id("submit"));
-        time = (System.nanoTime() - startTime)/1000000;
-        if (this.execTimes.containsKey("button_find_by_id")) {
-            this.execTimes.get("button_find_by_id").add(time);
-        } else {
-            this.execTimes.put("button_find_by_id", new ArrayList<>(Arrays.asList(time)));
+
+        try {
+            comments.sendKeys(commentInputText);
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments.sendKeys(commentInputText);");
+            e.printStackTrace();
         }
 
-        startTime = System.nanoTime();
-        button.click();
-        time = (System.nanoTime() - startTime)/1000000;
-        if (this.execTimes.containsKey("button_click")) {
-            this.execTimes.get("button_click").add(time);
-        } else {
-            this.execTimes.put("button_click", new ArrayList<>(Arrays.asList(time)));
+        WebElement button = null;
+        try {
+            button = driver.findElement(By.id("submit"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button = driver.findElement(By.id(\"submit\"));");
+            e.printStackTrace();
         }
 
-        startTime = System.nanoTime();
-        WebElement submittedComments = driver.findElement(By.id("your_comments"));
-        time = (System.nanoTime() - startTime)/1000000;
-        if (this.execTimes.containsKey("submitted_comments_find_by_id")) {
-            this.execTimes.get("submitted_comments_find_by_id").add(time);
-        } else {
-            this.execTimes.put("submitted_comments_find_by_id", new ArrayList<>(Arrays.asList(time)));
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button.click();");
+            e.printStackTrace();
         }
 
-        startTime = System.nanoTime();
-        String submittedCommentsText = submittedComments.getText();
-        time = (System.nanoTime() - startTime)/1000000;
-        if (this.execTimes.containsKey("submitted_comments_get_text")) {
-            this.execTimes.get("submitted_comments_get_text").add(time);
-        } else {
-            this.execTimes.put("submitted_comments_get_text", new ArrayList<>(Arrays.asList(time)));
+        WebElement submittedComments = null;
+        try {
+            submittedComments = driver.findElement(By.id("your_comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedComments = driver.findElement(By.id(\"your_comments\"));");
+            e.printStackTrace();
+        }
+
+        String submittedCommentsText = "";
+        try {
+            submittedCommentsText = submittedComments.getText();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedCommentsText = submittedComments.getText();");
+            e.printStackTrace();
+        }
+
+        assertTrue(submittedCommentsText.endsWith(commentInputText));
+    }
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     *
+     * @throws InvalidElementStateException
+     */
+    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 1)
+    public void verifyCommentInputTest2(String browser, String version, String os, Method method)
+            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        WebDriver driver = createDriver(browser, version, os, method.getName());
+        if (driver == null) {
+            System.err.println("Driver is null!");
+            assertTrue(false);
+        }
+        try {
+            driver.get("https://www.amazon.com");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.amazon.com\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://www.bbc.co.uk");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.bbc.co.uk\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://saucelabs.com/test/guinea-pig");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://saucelabs.com/test/guinea-pig\");");
+            e.printStackTrace();
+        }
+        WebElement comments = null;
+        try {
+            comments = driver.findElement(By.id("comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments = driver.findElement(By.id(\"comments\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            comments.sendKeys(commentInputText);
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments.sendKeys(commentInputText);");
+            e.printStackTrace();
+        }
+
+        WebElement button = null;
+        try {
+            button = driver.findElement(By.id("submit"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button = driver.findElement(By.id(\"submit\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button.click();");
+            e.printStackTrace();
+        }
+
+        WebElement submittedComments = null;
+        try {
+            submittedComments = driver.findElement(By.id("your_comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedComments = driver.findElement(By.id(\"your_comments\"));");
+            e.printStackTrace();
+        }
+
+        String submittedCommentsText = "";
+        try {
+            submittedCommentsText = submittedComments.getText();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedCommentsText = submittedComments.getText();");
+            e.printStackTrace();
         }
 
         assertTrue(submittedCommentsText.endsWith(commentInputText));
     }
 
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     *
+     * @throws InvalidElementStateException
+     */
+    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 1)
+    public void verifyCommentInputTest3(String browser, String version, String os, Method method)
+            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        WebDriver driver = createDriver(browser, version, os, method.getName());
+        if (driver == null) {
+            System.err.println("Driver is null!");
+            assertTrue(false);
+        }
+        try {
+            driver.get("https://www.amazon.com");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.amazon.com\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://www.bbc.co.uk");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.bbc.co.uk\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://saucelabs.com/test/guinea-pig");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://saucelabs.com/test/guinea-pig\");");
+            e.printStackTrace();
+        }
+        WebElement comments = null;
+        try {
+            comments = driver.findElement(By.id("comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments = driver.findElement(By.id(\"comments\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            comments.sendKeys(commentInputText);
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments.sendKeys(commentInputText);");
+            e.printStackTrace();
+        }
+
+        WebElement button = null;
+        try {
+            button = driver.findElement(By.id("submit"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button = driver.findElement(By.id(\"submit\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button.click();");
+            e.printStackTrace();
+        }
+
+        WebElement submittedComments = null;
+        try {
+            submittedComments = driver.findElement(By.id("your_comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedComments = driver.findElement(By.id(\"your_comments\"));");
+            e.printStackTrace();
+        }
+
+        String submittedCommentsText = "";
+        try {
+            submittedCommentsText = submittedComments.getText();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedCommentsText = submittedComments.getText();");
+            e.printStackTrace();
+        }
+
+        assertTrue(submittedCommentsText.endsWith(commentInputText));
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     *
+     * @throws InvalidElementStateException
+     */
+    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 1)
+    public void verifyCommentInputTest4(String browser, String version, String os, Method method)
+            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        WebDriver driver = createDriver(browser, version, os, method.getName());
+        if (driver == null) {
+            System.err.println("Driver is null!");
+            assertTrue(false);
+        }
+        try {
+            driver.get("https://www.amazon.com");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.amazon.com\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://www.bbc.co.uk");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.bbc.co.uk\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://saucelabs.com/test/guinea-pig");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://saucelabs.com/test/guinea-pig\");");
+            e.printStackTrace();
+        }
+        WebElement comments = null;
+        try {
+            comments = driver.findElement(By.id("comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments = driver.findElement(By.id(\"comments\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            comments.sendKeys(commentInputText);
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments.sendKeys(commentInputText);");
+            e.printStackTrace();
+        }
+
+        WebElement button = null;
+        try {
+            button = driver.findElement(By.id("submit"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button = driver.findElement(By.id(\"submit\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button.click();");
+            e.printStackTrace();
+        }
+
+        WebElement submittedComments = null;
+        try {
+            submittedComments = driver.findElement(By.id("your_comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedComments = driver.findElement(By.id(\"your_comments\"));");
+            e.printStackTrace();
+        }
+
+        String submittedCommentsText = "";
+        try {
+            submittedCommentsText = submittedComments.getText();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedCommentsText = submittedComments.getText();");
+            e.printStackTrace();
+        }
+
+        assertTrue(submittedCommentsText.endsWith(commentInputText));
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     *
+     * @throws InvalidElementStateException
+     */
+    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 1)
+    public void verifyCommentInputTest5(String browser, String version, String os, Method method)
+            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        WebDriver driver = createDriver(browser, version, os, method.getName());
+        if (driver == null) {
+            System.err.println("Driver is null!");
+            assertTrue(false);
+        }
+
+        try {
+            driver.get("https://www.amazon.com");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.amazon.com\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://www.bbc.co.uk");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.bbc.co.uk\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://saucelabs.com/test/guinea-pig");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://saucelabs.com/test/guinea-pig\");");
+            e.printStackTrace();
+        }
+        WebElement comments = null;
+        try {
+            comments = driver.findElement(By.id("comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments = driver.findElement(By.id(\"comments\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            comments.sendKeys(commentInputText);
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments.sendKeys(commentInputText);");
+            e.printStackTrace();
+        }
+
+        WebElement button = null;
+        try {
+            button = driver.findElement(By.id("submit"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button = driver.findElement(By.id(\"submit\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button.click();");
+            e.printStackTrace();
+        }
+
+        WebElement submittedComments = null;
+        try {
+            submittedComments = driver.findElement(By.id("your_comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedComments = driver.findElement(By.id(\"your_comments\"));");
+            e.printStackTrace();
+        }
+
+        String submittedCommentsText = "";
+        try {
+            submittedCommentsText = submittedComments.getText();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedCommentsText = submittedComments.getText();");
+            e.printStackTrace();
+        }
+
+        assertTrue(submittedCommentsText.endsWith(commentInputText));
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     *
+     * @throws InvalidElementStateException
+     */
+    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 1)
+    public void verifyCommentInputTest6(String browser, String version, String os, Method method)
+            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        WebDriver driver = createDriver(browser, version, os, method.getName());
+        if (driver == null) {
+            System.err.println("Driver is null!");
+            assertTrue(false);
+        }
+        try {
+            driver.get("https://www.amazon.com");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.amazon.com\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://www.bbc.co.uk");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.bbc.co.uk\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://saucelabs.com/test/guinea-pig");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://saucelabs.com/test/guinea-pig\");");
+            e.printStackTrace();
+        }
+        WebElement comments = null;
+        try {
+            comments = driver.findElement(By.id("comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments = driver.findElement(By.id(\"comments\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            comments.sendKeys(commentInputText);
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments.sendKeys(commentInputText);");
+            e.printStackTrace();
+        }
+
+        WebElement button = null;
+        try {
+            button = driver.findElement(By.id("submit"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button = driver.findElement(By.id(\"submit\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button.click();");
+            e.printStackTrace();
+        }
+
+        WebElement submittedComments = null;
+        try {
+            submittedComments = driver.findElement(By.id("your_comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedComments = driver.findElement(By.id(\"your_comments\"));");
+            e.printStackTrace();
+        }
+
+        String submittedCommentsText = "";
+        try {
+            submittedCommentsText = submittedComments.getText();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedCommentsText = submittedComments.getText();");
+            e.printStackTrace();
+        }
+
+        assertTrue(submittedCommentsText.endsWith(commentInputText));
+    }
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     *
+     * @throws InvalidElementStateException
+     */
+    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 1)
+    public void verifyCommentInputTest7(String browser, String version, String os, Method method)
+            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        WebDriver driver = createDriver(browser, version, os, method.getName());
+        if (driver == null) {
+            System.err.println("Driver is null!");
+            assertTrue(false);
+        }
+        try {
+            driver.get("https://www.amazon.com");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.amazon.com\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://www.bbc.co.uk");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.bbc.co.uk\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://saucelabs.com/test/guinea-pig");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://saucelabs.com/test/guinea-pig\");");
+            e.printStackTrace();
+        }
+        WebElement comments = null;
+        try {
+            comments = driver.findElement(By.id("comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments = driver.findElement(By.id(\"comments\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            comments.sendKeys(commentInputText);
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments.sendKeys(commentInputText);");
+            e.printStackTrace();
+        }
+
+        WebElement button = null;
+        try {
+            button = driver.findElement(By.id("submit"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button = driver.findElement(By.id(\"submit\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button.click();");
+            e.printStackTrace();
+        }
+
+        WebElement submittedComments = null;
+        try {
+            submittedComments = driver.findElement(By.id("your_comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedComments = driver.findElement(By.id(\"your_comments\"));");
+            e.printStackTrace();
+        }
+
+        String submittedCommentsText = "";
+        try {
+            submittedCommentsText = submittedComments.getText();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedCommentsText = submittedComments.getText();");
+            e.printStackTrace();
+        }
+
+        assertTrue(submittedCommentsText.endsWith(commentInputText));
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     *
+     * @throws InvalidElementStateException
+     */
+    @org.testng.annotations.Test(dataProvider = "hardCodedBrowsers", invocationCount = 1)
+    public void verifyCommentInputTest8(String browser, String version, String os, Method method)
+            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        WebDriver driver = createDriver(browser, version, os, method.getName());
+        if (driver == null) {
+            System.err.println("Driver is null!");
+            assertTrue(false);
+        }
+        try {
+            driver.get("https://www.amazon.com");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.amazon.com\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://www.bbc.co.uk");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://www.bbc.co.uk\");");
+            e.printStackTrace();
+        }
+
+        try {
+            driver.get("https://saucelabs.com/test/guinea-pig");
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("driver.get(\"https://saucelabs.com/test/guinea-pig\");");
+            e.printStackTrace();
+        }
+        WebElement comments = null;
+        try {
+            comments = driver.findElement(By.id("comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments = driver.findElement(By.id(\"comments\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            comments.sendKeys(commentInputText);
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("comments.sendKeys(commentInputText);");
+            e.printStackTrace();
+        }
+
+        WebElement button = null;
+        try {
+            button = driver.findElement(By.id("submit"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button = driver.findElement(By.id(\"submit\"));");
+            e.printStackTrace();
+        }
+
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("button.click();");
+            e.printStackTrace();
+        }
+
+        WebElement submittedComments = null;
+        try {
+            submittedComments = driver.findElement(By.id("your_comments"));
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedComments = driver.findElement(By.id(\"your_comments\"));");
+            e.printStackTrace();
+        }
+
+        String submittedCommentsText = "";
+        try {
+            submittedCommentsText = submittedComments.getText();
+        } catch (Exception e) {
+            String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+            System.err.println("Session ID: " + sessionId);
+            System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
+            System.err.println("submittedCommentsText = submittedComments.getText();");
+            e.printStackTrace();
+        }
+
+        assertTrue(submittedCommentsText.endsWith(commentInputText));
+    }
+
+
+
+    /*
     @BeforeClass
     public void logSetup(){
         this.execTimes = new HashMap<>();
@@ -164,4 +982,5 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
 
         }
     }
+    */
 }

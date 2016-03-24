@@ -26,7 +26,7 @@ public class SauceHelpers {
      * @return String formatted uri for Sauce Se commands.
      */
     public static String buildSauceUri(boolean doNotUseSauceConnectCmdRelay) {
-        String seleniumURI = "@ondemand.saucelabs.com:80";
+        String seleniumURI = "@localhost:4445";
         String seleniumPort = System.getenv("SELENIUM_PORT");
         if (!doNotUseSauceConnectCmdRelay && seleniumPort != null) {
             //While running in CI, if Sauce Connect is running the SELENIUM_PORT env var will be set.

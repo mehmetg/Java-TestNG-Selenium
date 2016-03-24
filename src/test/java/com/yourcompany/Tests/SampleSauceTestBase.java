@@ -70,11 +70,67 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider, Sauc
     @DataProvider(name = "hardCodedBrowsers", parallel = true)
     public static Object[][] sauceBrowserDataProvider(Method testMethod) {
         return new Object[][]{
-                //new Object[]{"internet explorer", "11", "Windows 8.1"},
-                //new Object[]{"chrome", "41", "Windows XP"},
-                //new Object[]{"safari", "7", "OS X 10.9"},
-                new Object[]{"firefox", "latest", "Linux"},
-                //new Object[]{"opera", "12.12", "Windows 7"}
+                new Object[]{"chrome", "latest-1", "Linux"},
+                new Object[]{"chrome", "latest-2", "Linux"},
+                new Object[]{"chrome", "latest-3", "Linux"},
+                new Object[]{"chrome", "latest-4", "Linux"},
+                new Object[]{"chrome", "latest-5", "Linux"},
+                new Object[]{"chrome", "latest-6", "Linux"},
+                new Object[]{"chrome", "latest-7", "Linux"},
+                new Object[]{"chrome", "latest-8", "Linux"},
+                new Object[]{"chrome", "latest-9", "Linux"},
+                new Object[]{"firefox", "latest-10", "Linux"},
+                new Object[]{"firefox", "latest-1", "Linux"},
+                new Object[]{"firefox", "latest-2", "Linux"},
+                new Object[]{"firefox", "latest-3", "Linux"},
+                new Object[]{"firefox", "latest-4", "Linux"},
+                new Object[]{"firefox", "latest-5", "Linux"},
+                new Object[]{"firefox", "latest-6", "Linux"},
+                new Object[]{"firefox", "latest-7", "Linux"},
+                new Object[]{"firefox", "latest-8", "Linux"},
+                new Object[]{"firefox", "latest-9", "Linux"},
+                new Object[]{"firefox", "latest-10", "Linux"},
+                new Object[]{"chrome", "latest-1", "Windows XP"},
+                new Object[]{"chrome", "latest-2", "Windows XP"},
+                new Object[]{"chrome", "latest-3", "Windows XP"},
+                new Object[]{"chrome", "latest-4", "Windows XP"},
+                new Object[]{"chrome", "latest-5", "Windows XP"},
+                new Object[]{"chrome", "latest-6", "Windows XP"},
+                new Object[]{"chrome", "latest-7", "Windows XP"},
+                new Object[]{"chrome", "latest-8", "Windows XP"},
+                new Object[]{"chrome", "latest-9", "Windows XP"},
+                new Object[]{"firefox", "latest-10", "Windows XP"},
+                new Object[]{"firefox", "latest-1", "Windows XP"},
+                new Object[]{"firefox", "latest-2", "Windows XP"},
+                new Object[]{"firefox", "latest-3", "Windows XP"},
+                new Object[]{"firefox", "latest-4", "Windows XP"},
+                new Object[]{"firefox", "latest-5", "Windows XP"},
+                new Object[]{"firefox", "latest-6", "Windows XP"},
+                new Object[]{"firefox", "latest-7", "Windows XP"},
+                new Object[]{"firefox", "latest-8", "Windows XP"},
+                new Object[]{"firefox", "latest-9", "Windows XP"},
+                new Object[]{"firefox", "latest-10", "Windows XP"},
+                new Object[]{"chrome", "latest-1", "Windows 7"},
+                new Object[]{"chrome", "latest-2", "Windows 7"},
+                new Object[]{"chrome", "latest-3", "Windows 7"},
+                new Object[]{"chrome", "latest-4", "Windows 7"},
+                new Object[]{"chrome", "latest-5", "Windows 7"},
+                new Object[]{"chrome", "latest-6", "Windows 7"},
+                new Object[]{"chrome", "latest-7", "Windows 7"},
+                new Object[]{"chrome", "latest-8", "Windows 7"},
+                new Object[]{"chrome", "latest-9", "Windows 7"},
+                new Object[]{"firefox", "latest-10", "Windows 7"},
+                new Object[]{"firefox", "latest-1", "Windows 7"},
+                new Object[]{"firefox", "latest-2", "Windows 7"},
+                new Object[]{"firefox", "latest-3", "Windows 7"},
+                new Object[]{"firefox", "latest-4", "Windows 7"},
+                new Object[]{"firefox", "latest-5", "Windows 7"},
+                new Object[]{"firefox", "latest-6", "Windows 7"},
+                new Object[]{"firefox", "latest-7", "Windows 7"},
+                new Object[]{"firefox", "latest-8", "Windows 7"},
+                new Object[]{"firefox", "latest-9", "Windows 7"},
+                new Object[]{"firefox", "latest-10", "Windows 7"},
+
         };
     }
 
@@ -123,7 +179,7 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider, Sauc
         capabilities.setCapability(CapabilityType.VERSION, version);
         capabilities.setCapability(CapabilityType.PLATFORM, os);
         capabilities.setCapability("name", methodName);
-        capabilities.setCapability("seleniumVersion", "2.52.0");
+        capabilities.setCapability("seleniumVersion", "2.53.0");
 
         if (buildTag != null) {
             capabilities.setCapability("build", buildTag);

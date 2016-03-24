@@ -45,8 +45,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.0</version>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -54,24 +54,32 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19</version>
                 <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>5</threadCount>
+                    <properties>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <value>60</value>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <repositories>
-            <repository>
-                    <id>saucelabs-repository</id>
-                    <url>
-                            https://repository-saucelabs.forge.cloudbees.com/release
-                    </url>
-                    <releases>
-                            <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                            <enabled>true</enabled>
-                    </snapshots>
-            </repository>
+        <repository>
+            <id>saucelabs-repository</id>
+            <url>
+                https://repository-saucelabs.forge.cloudbees.com/release
+            </url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
 </project>
