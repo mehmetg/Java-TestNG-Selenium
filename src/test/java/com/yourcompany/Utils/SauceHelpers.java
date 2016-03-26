@@ -26,15 +26,15 @@ public class SauceHelpers {
      * @return String formatted uri for Sauce Se commands.
      */
     public static String buildSauceUri(boolean doNotUseSauceConnectCmdRelay) {
-        String seleniumURI = "@localhost:4445";
+        String seleniumURI = "@ondemand.saucelabs.com:80";
         String seleniumPort = System.getenv("SELENIUM_PORT");
+        String seleniumHost = System.getenv("SELENIUM_HOST");
         if (!doNotUseSauceConnectCmdRelay && seleniumPort != null) {
             //While running in CI, if Sauce Connect is running the SELENIUM_PORT env var will be set.
             //use SC relay port
-            seleniumURI = String.format("@localhost:%s", seleniumPort);
-
+            seleniumURI = String.format("@%s:%s", seleniumHost, seleniumPort);
         }
-        return seleniumURI;
+        return  seleniumURI;
     }
     /**
      * Will generate the URI that will be used to send commands to the Se instance.
