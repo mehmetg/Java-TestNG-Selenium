@@ -71,12 +71,12 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             assertTrue(false);
         }
         try {
-            driver.get("https://www.amazon.com");
+            driver.get("https://www.msn.com");
         } catch (Exception e) {
             String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
-            System.err.println("driver.get(\"https://www.amazon.com\");");
+            System.err.println("driver.get(\"https://www.msn.com\");");
             e.printStackTrace();
         }
 
