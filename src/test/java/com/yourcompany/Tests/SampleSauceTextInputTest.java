@@ -70,7 +70,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Driver is null!");
             assertTrue(false);
         }
-        /*try {
+        try {
             driver.get("https://www.msn.com");
         } catch (Exception e) {
             String sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
@@ -78,7 +78,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             System.err.println("driver.get(\"https://www.msn.com\");");
             e.printStackTrace();
-        }*/
+        }
 
         try {
             driver.get("https://www.bbc.co.uk");
