@@ -6,12 +6,14 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 
 * Sauce Connect Setup
     * Version 4.3.14 on Linux ip-172-30-1-208 3.13.0-74-generic #118-Ubuntu SMP Thu Dec 17 22:52:10 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
-    * AWS [m4.xlarge](https://aws.amazon.com/ec2/instance-types/)instance
+    * AWS [m4.xlarge](https://aws.amazon.com/ec2/instance-types/) instance
     * SC command relay is in use. 
-    * Command line: (Launch and clean up scripts under ./scripts)
-        ```ulimit -n 65536```
+    * Command line: (Launch and clean up scripts under [./scripts](https://github.com/mehmetg/Java-TestNG-Selenium/tree/load-test/scripts)
+        
+	```ulimit -n 65536```
         ```bin/sc -vv --wait-tunnel-shutdown -l sc_log.txt -d pid.txt```
-    * Sauce User: mehmetg-high-conc (VM limit 350)
+    * Sauce User: mehmetg-high-conc (VM limit 500)
+    * SC and tests run on the same host
 * Test Setup
     * TestNg / MVN
     * 350 Tests total
@@ -33,10 +35,12 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     * History of open files for SC: open_files_<ts>.txt (ts, # connections)
     * History of memory/cpu usage: memory_usage_<ts>.txt
 * Steps
-    * Set network conditions scripts can be found under ./scripts	
-    * Start SC 
+    * Set network conditions scripts can be found under [./scripts](https://github.com/mehmetg/Java-TestNG-Selenium/tree/load-test/scripts)
+    * Start SC start script found under [./scripts](https://github.com/mehmetg/Java-TestNG-Selenium/tree/load-test/scripts)
     * Start logging and monitoring scripts
     * Start tests
+    	*  runtest_cr.sh for command relay test (uses SC relay on localhost)
+    	*  runtest_nr.sh for no command relay test (direct connection to ondemand.saucelabs.com:80)
 * Observations
     * TBD
 
