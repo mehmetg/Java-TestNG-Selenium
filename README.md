@@ -32,7 +32,7 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     * Test stderr (Client side): errors_<ts>.txt (has url links to job errors and time to error)
     * Test stdout (Client side): srd_<ts>.txt (has command completion times)
     * History of open connections for SC: open_connections_<ts>.txt (ts, # connections)
-    * History of open files for SC: open_files_<ts>.txt (ts, # connections)
+    * History of open files for SC: open_files_<ts>.txt (ts, list of open file descriptors)
     * History of memory/cpu usage: memory_usage_<ts>.txt
 * Steps
     * Set network conditions scripts can be found under [./scripts](https://github.com/mehmetg/Java-TestNG-Selenium/tree/load-test/scripts)
@@ -41,9 +41,14 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     * Start tests
     	*  runtest_cr.sh for command relay test (uses SC relay on localhost)
     	*  runtest_nr.sh for no command relay test (direct connection to ondemand.saucelabs.com:80)
-* Observations
-    * TBD
+    	*  Test scripts can be edited for repeated runs... set to 100 at the moment.
+* Notes
+    * Expect actual concurrency to be ~150-250 with the current settings.
+    * More test client hosts are needed to exceed the above listed number.
 
+* Observations:
+    * TBD
+   
 ### Environment Setup
 
 1. Global Dependencies
