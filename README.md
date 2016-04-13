@@ -6,7 +6,7 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 
 * Sauce Connect Setup
     * Version 4.3.14 on Linux ip-172-30-1-208 3.13.0-74-generic #118-Ubuntu SMP Thu Dec 17 22:52:10 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
-    * AWS [m4.xlarge](https://aws.amazon.com/ec2/instance-types/) instance
+    * AWS [m4.xlarge](https://aws.amazon.com/ec2/instance-types/) instance **IP: 54.193.86.199**
     * SC command relay is in use. 
     * Command line: (Launch and clean up scripts under [./scripts](https://github.com/mehmetg/Java-TestNG-Selenium/tree/load-test/scripts)
         
@@ -18,6 +18,18 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     * TestNg / MVN
     * 350 Tests total
     * 350 Concurrent threads at a time. It will run in increments of 350
+    * SC is planned to run on vethb network interface and monitored by ifstat.
+    	* Setup: (as root) -- These need to be only done one per setup.
+    		* ```ip netns add test```
+    		* ```ip link add vetha type veth peer name vethb```
+    		* ```ip link set vetha netns test```
+    		* ```ip netns exec test ifconfig vetha up 192.168.163.1 netmask 255.255.255.0```
+    		* ```ifconfig vethb up 192.168.163.254 netmask 255.255.255.0```
+    		* ```ip netns exec test route add default gw 192.168.163.254 dev vetha```
+    		* ```echo 1 > /proc/sys/net/ipv4/ip_forward```
+    		* ```iptables -t nat -A POSTROUTING -s 192.168.163.0/24 -o eth0 -j SNAT --to-source 172.30.1.255```
+    		* ```ip netns exec test start_sc.sh```
+    		* ```ifstat -i vethb > networkusage.txt```
 * Test Content
     * Load https://www.amazon.com
     * Load https://www.bbc.co.uk
