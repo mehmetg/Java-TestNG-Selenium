@@ -5,17 +5,17 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
 ### Load Test Details
 
 * Sauce Connect Setup
-    * Version 4.3.14 on Kubuntu 15.10  - Linux 4.2.0-34-generic #39-Ubuntu SMP Thu Mar 10 22:13:01 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
-    * 4 Core Intel CPU Hyperthreaded with 16GB Ram
-    * SC command relay is in use
-    * Command line: 
+    * Version 4.3.14 on Linux ip-172-30-1-208 3.13.0-74-generic #118-Ubuntu SMP Thu Dec 17 22:52:10 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+    * AWS [m4.xlarge](https://aws.amazon.com/ec2/instance-types/)instance
+    * SC command relay is in use. 
+    * Command line: (Launch and clean up scripts under ./scripts)
         ```ulimit -n 65536```
         ```bin/sc -vv --wait-tunnel-shutdown -l sc_log.txt -d pid.txt```
     * Sauce User: mehmetg-high-conc (VM limit 350)
 * Test Setup
     * TestNg / MVN
-    * 480 Tests total
-    * 300 Concurrent threads at a time. It will run in increments of 300
+    * 350 Tests total
+    * 350 Concurrent threads at a time. It will run in increments of 350
 * Test Content
     * Load https://www.amazon.com
     * Load https://www.bbc.co.uk
@@ -26,23 +26,19 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     * Compare input to read-back.
     
 * Data Files
-    * SC Log: sc_log.txt
-    * Test Error Log (Client side): errors.txt (has url links to job errors)
-    * History of open connections for SC: open_connections.txt (ts, # connections)
-    * History of memory/cpu usage: memory_usage.txt
+    * SC Log: sc_log_<ts>.txt
+    * Test stderr (Client side): errors_<ts>.txt (has url links to job errors and time to error)
+    * Test stdout (Client side): srd_<ts>.txt (has command completion times)
+    * History of open connections for SC: open_connections_<ts>.txt (ts, # connections)
+    * History of open files for SC: open_files_<ts>.txt (ts, # connections)
+    * History of memory/cpu usage: memory_usage_<ts>.txt
 * Steps
+    * Set network conditions scripts can be found under ./scripts	
     * Start SC 
     * Start logging and monitoring scripts
     * Start tests
 * Observations
-    * SC memory usage starts at 2.3 MB 
-    * SC memory usage grew to ~3GB over the next 30 mins.
-    * Number of SC open connections grow to ~8000
-    * Tests in session time out: Almost all 298 out of 300 and 2 fail
-    * Number of SC open connections drop to to ~3500 (Assuming relay connections)
-    * Maven execution stops on the idle connections waiting for a timeout.
-    * After 30 minutes of waiting aborted test by shutting down maven and than SC.
-    * Logs can be found under the folder **test300concurrent**
+    * TBD
 
 ### Environment Setup
 
