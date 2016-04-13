@@ -24,41 +24,6 @@ import static org.junit.Assert.assertTrue;
 
 public class SampleSauceTextInputTest extends SampleSauceTestBase {
 
-    //HashMap<String, ArrayList<Double>> execTimes;
-
-    /**
-     * Runs a simple test verifying if the email input is functional.
-     *
-     * @throws InvalidElementStateException
-     */
-    //@org.testng.annotations.Test(dataProvider = "hardCodedBrowsers")
-    public void verifyEmailInputTest(String browser, String version, String os, Method method)
-            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
-        String emailInputText = "abc@gmail.com";
-        WebDriver driver = createDriver(browser, version, os, method.getName());
-        // Navigate to the page
-
-
-
-
-
-        // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
-
-        /*
-         enterEmailText page is an exposed "service",
-             which interacts with the email input field element by sending text to it.
-        */
-        page.enterEmailText(emailInputText);
-
-        /*
-         Assertions should be part of test and not part of Page object.
-         Each test should be verifying one piece of functionality (atomic testing)
-        */
-        assertEquals(page.getEmailText(), emailInputText);
-
-    }
-
     /**
      * Runs a simple test verifying if the comment input is functional.
      *
@@ -81,6 +46,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             secs = (nanoTime() - time) / 1000000;
             System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -102,6 +68,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -115,6 +82,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -128,6 +96,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -143,6 +112,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -156,6 +126,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement button = null;
@@ -170,6 +141,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -183,6 +155,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement submittedComments = null;
@@ -197,6 +170,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         String submittedCommentsText = "";
@@ -211,6 +185,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         assertTrue(submittedCommentsText.endsWith(commentInputText));
@@ -232,6 +207,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             secs = (nanoTime() - time) / 1000000;
             System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -253,6 +229,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -266,6 +243,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -279,6 +257,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -294,6 +273,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -307,6 +287,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement button = null;
@@ -321,6 +302,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -334,6 +316,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement submittedComments = null;
@@ -348,6 +331,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         String submittedCommentsText = "";
@@ -362,6 +346,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         assertTrue(submittedCommentsText.endsWith(commentInputText));
@@ -383,6 +368,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             secs = (nanoTime() - time) / 1000000;
             System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -404,6 +390,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -417,6 +404,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -430,6 +418,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -445,6 +434,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -458,6 +448,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement button = null;
@@ -472,6 +463,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -485,6 +477,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement submittedComments = null;
@@ -499,6 +492,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         String submittedCommentsText = "";
@@ -513,6 +507,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         assertTrue(submittedCommentsText.endsWith(commentInputText));
@@ -534,6 +529,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             secs = (nanoTime() - time) / 1000000;
             System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -555,6 +551,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -568,6 +565,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -581,6 +579,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -596,6 +595,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -609,6 +609,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement button = null;
@@ -623,6 +624,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -636,6 +638,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement submittedComments = null;
@@ -650,6 +653,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         String submittedCommentsText = "";
@@ -664,6 +668,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         assertTrue(submittedCommentsText.endsWith(commentInputText));
@@ -685,6 +690,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             secs = (nanoTime() - time) / 1000000;
             System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -706,6 +712,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -719,6 +726,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -732,6 +740,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
 
@@ -747,6 +756,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -760,6 +770,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement button = null;
@@ -774,6 +785,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         time = nanoTime();
@@ -787,6 +799,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         WebElement submittedComments = null;
@@ -801,6 +814,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         String submittedCommentsText = "";
@@ -815,6 +829,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
+            assertTrue(false);
         }
 
         assertTrue(submittedCommentsText.endsWith(commentInputText));
