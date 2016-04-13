@@ -59,7 +59,7 @@
                     <properties>
                         <property>
                             <name>dataproviderthreadcount</name>
-                            <value>60</value>
+                            <value>70</value>
                         </property>
                     </properties>
                 </configuration>

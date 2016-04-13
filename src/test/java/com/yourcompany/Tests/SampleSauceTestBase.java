@@ -24,6 +24,8 @@ import java.rmi.UnexpectedException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import static java.lang.System.nanoTime;
+
 /**
  * Simple TestNG test which demonstrates being instantiated via a DataProvider in order to supply multiple browser combinations.
  *
@@ -187,9 +189,22 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider, Sauc
         }
 
         // Launch remote browser and set it as the current thread
-        webDriver.set(new RemoteWebDriver(
-                new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + seleniumURI +"/wd/hub"),
-                capabilities));
+        long time = 0;
+        double secs = 0;
+        time = nanoTime();
+        try {
+            webDriver.set(new RemoteWebDriver(
+                    new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + seleniumURI +"/wd/hub"),
+                    capabilities));
+            secs = (nanoTime() - time) / 1000000;
+            System.out.format("createDriver executed in %f", secs);
+        } catch (Exception e) {
+            secs = (nanoTime() - time) / 1000000;
+            System.err.format("createDriver failed in %f", secs);
+            e.printStackTrace();
+        }
+
+
 
         // set current sessionId
         String id = ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
@@ -212,7 +227,19 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider, Sauc
     public void tearDown() throws Exception {
 
         //Gets browser logs if available.
-        webDriver.get().quit();
+        long time = 0;
+        double secs = 0;
+        time = nanoTime();
+        try {
+            webDriver.get().quit();
+            secs = (nanoTime() - time) / 1000000;
+            System.out.format("webDriver.get().quit(); executed in %f", secs);
+        } catch (Exception e) {
+            secs = (nanoTime() - time) / 1000000;
+            System.err.format(" webDriver.get().quit(); failed in %f", secs);
+            e.printStackTrace();
+        }
+
     }
 
     @BeforeSuite
