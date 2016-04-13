@@ -132,6 +132,16 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider, Sauc
                 new Object[]{"firefox", "latest-8", "Linux"},
                 new Object[]{"firefox", "latest-9", "Linux"},
                 new Object[]{"firefox", "latest-10", "Linux"},
+                new Object[]{"firefox", "latest-1", "Linux"},
+                new Object[]{"firefox", "latest-2", "Linux"},
+                new Object[]{"firefox", "latest-3", "Linux"},
+                new Object[]{"firefox", "latest-4", "Linux"},
+                new Object[]{"firefox", "latest-5", "Linux"},
+                new Object[]{"firefox", "latest-6", "Linux"},
+                new Object[]{"firefox", "latest-7", "Linux"},
+                new Object[]{"firefox", "latest-8", "Linux"},
+                new Object[]{"firefox", "latest-9", "Linux"},
+                new Object[]{"firefox", "latest-10", "Linux"},
 
 
         };
