@@ -219,9 +219,9 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider, Sauc
         // set current sessionId
         String id = ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
         sessionId.set(id);
-        webDriver.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        webDriver.get().manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        webDriver.get().manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+        webDriver.get().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        webDriver.get().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+        webDriver.get().manage().timeouts().setScriptTimeout(60, TimeUnit.SECONDS);
         // print out sessionId and jobname for consumption by Sauce Jenkins plugin
         //System.out.println(String.format("SauceOnDemandSessionID=%1$s job-name=%2$s", id, methodName));
 
