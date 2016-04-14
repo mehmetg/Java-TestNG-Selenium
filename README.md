@@ -21,7 +21,7 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
     * SC is planned to run on a separate instance and monitored by ifstat. (Host ?)
     	* Setup: (as root) -- These need to be only done one per setup.
     		* ```./start_sc.sh```
-    		* ```ifstat -i vethb > networkusage.txt```
+    		* ```ifstat -t -i vethb > networkusage.txt```
 * Test Content
     * Load https://www.amazon.com
     * Load https://www.bbc.co.uk

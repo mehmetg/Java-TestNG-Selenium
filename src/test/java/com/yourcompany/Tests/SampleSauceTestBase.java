@@ -207,10 +207,10 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider, Sauc
                     new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + seleniumURI +"/wd/hub"),
                     capabilities));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("createDriver executed in %f", secs);
+            System.out.format("createDriver executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("createDriver failed in %f", secs);
+            System.err.format("createDriver failed in %f\n", secs);
             e.printStackTrace();
         }
 
@@ -243,10 +243,10 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider, Sauc
         try {
             webDriver.get().quit();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("webDriver.get().quit(); executed in %f", secs);
+            System.out.format("webDriver.get().quit(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format(" webDriver.get().quit(); failed in %f", secs);
+            System.err.format(" webDriver.get().quit(); failed in %f\n", secs);
             e.printStackTrace();
         }
 

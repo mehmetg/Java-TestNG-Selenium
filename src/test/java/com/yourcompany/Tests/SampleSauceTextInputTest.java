@@ -41,10 +41,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver = createDriver(browser, version, os, method.getName());
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f", secs);
+            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
+            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f\n", secs);
             e.printStackTrace();
             assertTrue(false);
         }
@@ -61,10 +61,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.msn.com");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -75,10 +75,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.bbc.co.uk");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -89,10 +89,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://saucelabs.com/test/guinea-pig");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -105,10 +105,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments = driver.findElement(By.id("comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f", secs);
+            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f", secs);
+            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -119,10 +119,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments.sendKeys(commentInputText);
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments.sendKeys(commentInputText); executed in %f", secs);
+            System.out.format("comments.sendKeys(commentInputText); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments.sendKeys(commentInputText); failed in %f", secs);
+            System.err.format("comments.sendKeys(commentInputText); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -134,10 +134,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button = driver.findElement(By.id("submit"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f", secs);
+            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f", secs);
+            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -148,10 +148,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button.click();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button.click(); executed in %f", secs);
+            System.out.format("button.click(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button.click(); failed in %f", secs);
+            System.err.format("button.click(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -163,10 +163,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedComments = driver.findElement(By.id("your_comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f", secs);
+            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f", secs);
+            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -178,10 +178,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedCommentsText = submittedComments.getText();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f", secs);
+            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f", secs);
+            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -202,10 +202,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver = createDriver(browser, version, os, method.getName());
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f", secs);
+            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
+            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f\n", secs);
             e.printStackTrace();
             assertTrue(false);
         }
@@ -222,10 +222,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.msn.com");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -236,10 +236,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.bbc.co.uk");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -250,10 +250,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://saucelabs.com/test/guinea-pig");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -266,10 +266,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments = driver.findElement(By.id("comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f", secs);
+            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f", secs);
+            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -280,10 +280,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments.sendKeys(commentInputText);
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments.sendKeys(commentInputText); executed in %f", secs);
+            System.out.format("comments.sendKeys(commentInputText); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments.sendKeys(commentInputText); failed in %f", secs);
+            System.err.format("comments.sendKeys(commentInputText); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -295,10 +295,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button = driver.findElement(By.id("submit"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f", secs);
+            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f", secs);
+            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -309,10 +309,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button.click();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button.click(); executed in %f", secs);
+            System.out.format("button.click(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button.click(); failed in %f", secs);
+            System.err.format("button.click(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -324,10 +324,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedComments = driver.findElement(By.id("your_comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f", secs);
+            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f", secs);
+            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -339,10 +339,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedCommentsText = submittedComments.getText();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f", secs);
+            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f", secs);
+            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -363,10 +363,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver = createDriver(browser, version, os, method.getName());
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f", secs);
+            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
+            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f\n", secs);
             e.printStackTrace();
             assertTrue(false);
         }
@@ -383,10 +383,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.msn.com");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -397,10 +397,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.bbc.co.uk");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -411,10 +411,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://saucelabs.com/test/guinea-pig");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -427,10 +427,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments = driver.findElement(By.id("comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f", secs);
+            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f", secs);
+            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -441,10 +441,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments.sendKeys(commentInputText);
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments.sendKeys(commentInputText); executed in %f", secs);
+            System.out.format("comments.sendKeys(commentInputText); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments.sendKeys(commentInputText); failed in %f", secs);
+            System.err.format("comments.sendKeys(commentInputText); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -456,10 +456,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button = driver.findElement(By.id("submit"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f", secs);
+            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f", secs);
+            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -470,10 +470,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button.click();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button.click(); executed in %f", secs);
+            System.out.format("button.click(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button.click(); failed in %f", secs);
+            System.err.format("button.click(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -485,10 +485,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedComments = driver.findElement(By.id("your_comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f", secs);
+            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f", secs);
+            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -500,10 +500,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedCommentsText = submittedComments.getText();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f", secs);
+            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f", secs);
+            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -524,10 +524,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver = createDriver(browser, version, os, method.getName());
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f", secs);
+            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
+            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f\n", secs);
             e.printStackTrace();
             assertTrue(false);
         }
@@ -544,10 +544,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.msn.com");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -558,10 +558,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.bbc.co.uk");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -572,10 +572,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://saucelabs.com/test/guinea-pig");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -588,10 +588,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments = driver.findElement(By.id("comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f", secs);
+            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f", secs);
+            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -602,10 +602,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments.sendKeys(commentInputText);
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments.sendKeys(commentInputText); executed in %f", secs);
+            System.out.format("comments.sendKeys(commentInputText); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments.sendKeys(commentInputText); failed in %f", secs);
+            System.err.format("comments.sendKeys(commentInputText); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -617,10 +617,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button = driver.findElement(By.id("submit"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f", secs);
+            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f", secs);
+            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -631,10 +631,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button.click();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button.click(); executed in %f", secs);
+            System.out.format("button.click(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button.click(); failed in %f", secs);
+            System.err.format("button.click(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -646,10 +646,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedComments = driver.findElement(By.id("your_comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f", secs);
+            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f", secs);
+            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -661,10 +661,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedCommentsText = submittedComments.getText();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f", secs);
+            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f", secs);
+            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -685,10 +685,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver = createDriver(browser, version, os, method.getName());
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f", secs);
+            System.out.format("createDriver(browser, version, os, method.getName()); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f", secs);
+            System.err.format("createDriver(browser, version, os, method.getName()); failed in %f\n", secs);
             e.printStackTrace();
             assertTrue(false);
         }
@@ -705,10 +705,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.msn.com");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.msn.com\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.msn.com\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -719,10 +719,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://www.bbc.co.uk");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://www.bbc.co.uk\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://www.bbc.co.uk\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -733,10 +733,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             driver.get("https://saucelabs.com/test/guinea-pig");
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f", secs);
+            System.out.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f", secs);
+            System.err.format("driver.get(\"https://saucelabs.com/test/guinea-pig\"); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -749,10 +749,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments = driver.findElement(By.id("comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f", secs);
+            System.out.format("comments = driver.findElement(By.id(\"comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f", secs);
+            System.err.format("comments = driver.findElement(By.id(\"comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -763,10 +763,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             comments.sendKeys(commentInputText);
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("comments.sendKeys(commentInputText); executed in %f", secs);
+            System.out.format("comments.sendKeys(commentInputText); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("comments.sendKeys(commentInputText); failed in %f", secs);
+            System.err.format("comments.sendKeys(commentInputText); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -778,10 +778,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button = driver.findElement(By.id("submit"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f", secs);
+            System.out.format("button = driver.findElement(By.id(\"submit\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f", secs);
+            System.err.format("button = driver.findElement(By.id(\"submit\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -792,10 +792,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             button.click();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("button.click(); executed in %f", secs);
+            System.out.format("button.click(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("button.click(); failed in %f", secs);
+            System.err.format("button.click(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -807,10 +807,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedComments = driver.findElement(By.id("your_comments"));
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f", secs);
+            System.out.format("submittedComments = driver.findElement(By.id(\"your_comments\")); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f", secs);
+            System.err.format("submittedComments = driver.findElement(By.id(\"your_comments\")); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
@@ -822,10 +822,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         try {
             submittedCommentsText = submittedComments.getText();
             secs = (nanoTime() - time) / 1000000;
-            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f", secs);
+            System.out.format("submittedCommentsText = submittedComments.getText(); executed in %f\n", secs);
         } catch (Exception e) {
             secs = (nanoTime() - time) / 1000000;
-            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f", secs);
+            System.err.format("submittedCommentsText = submittedComments.getText(); failed in %f\n", secs);
             System.err.println("Session ID: " + sessionId);
             System.err.println("Session link: https://saucelabs.com/beta/tests/" + sessionId);
             e.printStackTrace();
